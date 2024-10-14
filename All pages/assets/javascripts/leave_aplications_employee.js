@@ -1,6 +1,4 @@
 import { createTable, filterTable } from "./table_maker.js";
-let editMode = false;
-let editLeave = null;
 let leavesWithEmployeesData = [];
 const url = "assets/data/employees_data.json";
 const addEmployeeForm = document.getElementById("create-leave-form");
@@ -50,7 +48,7 @@ if (!bootstrap.Modal.getInstance(modal)) {
 
 let filter = "";
 
-// Change the this array to change the table columns
+// Change this array to change the table columns
 let tableHeadings = [
   ["Employee", "Full Name"],
   ["Leave Type", "leaveType"],
@@ -115,25 +113,6 @@ function crateNewLeave(leave) {
   );
 }
 
-// Update existing leave
-function updateLeave(leave) {
-  leave.id = editLeave;
-
-  leaves = leaves.map((oldLeave) =>
-    oldLeave.id === editLeave ? leave : oldLeave
-  );
-  localStorage.leaves = JSON.stringify(leaves);
-
-  populateLeavesData();
-  addAction(
-    "Leave Updated",
-    "Update the leave for " +
-      employeeData.find(
-        (employee) => employee["Employee ID"] === leave.employeeId
-      )["Full Name"]
-  );
-}
-
 addEmployeeForm.addEventListener("submit", (event) => {
   event.preventDefault();
   // Get the data from the form
@@ -145,14 +124,7 @@ addEmployeeForm.addEventListener("submit", (event) => {
     reason: formFields.reason.value,
   };
 
-  if (editMode) {
-    editMode = false;
-    updateLeave(formData);
-    bootstrap.Modal.getInstance(modal).hide();
-    resetForm();
-    return;
-  }
-
+  debugger  
   crateNewLeave(formData);
   resetForm();
 
@@ -190,16 +162,6 @@ async function populateLeavesData() {
 
   // Create the table with filtered data
   createTable(table, filteredLeaves, tableHeadings);
-
-  // Add edit buttons to each row in the table
-  for (const tr of document.getElementsByTagName("tr")) {
-    if (tr.id) {
-      tr.appendChild(createEditButtons());
-    } else {
-      let th = document.createElement("th");
-      tr.appendChild(th);
-    }
-  }
 }
 
 // For filtering
@@ -258,47 +220,6 @@ try {
   );
 }
 
-// Populate the form with the leave data
-function populateLeaveForm(leave) {
-  choices.setChoiceByValue(leave.employeeId);
-  formFields.jopTitle.value = employeeData.find(
-    (employee) => employee["Employee ID"] === leave.employeeId
-  )["Job Title"];
-  formFields.department.value = employeeData.find(
-    (employee) => employee["Employee ID"] === leave.employeeId
-  )["Department"];
-  formFields.leaveType.value = leave.leaveType;
-  formFields.startDate.value = leave.startDate;
-  formFields.endDate.value = leave.endDate;
-  formFields.reason.value = leave.reason;
-}
-
-document.addEventListener("click", (event) => {
-  // git the parent of the target element
-  const target = event.target.parentNode;
-  if (target.tagName === "TR") {
-    editMode = true;
-    editLeave = target.id;
-    let leave = leaves.find((leave) => leave.id === editLeave);
-    populateLeaveForm(leave);
-    bootstrap.Modal.getInstance(modal).show();
-  }
-});
-
-modal.addEventListener("show.bs.modal", () => {
-  if (editMode) {
-    document.getElementById("new-leave-formLabel").innerText = "Edit Leave";
-  } else {
-    document.getElementById("new-leave-formLabel").innerText = "Add Leave";
-  }
-});
-
-// reset the form when the modal is closed
-modal.addEventListener("hidden.bs.modal", () => {
-  editMode = false;
-  resetForm();
-});
-
 function resetForm() {
   formFields.leaveType.value = "";
   formFields.startDate.value = new Date().toISOString().split("T")[0];
@@ -308,17 +229,3 @@ function resetForm() {
   formFields.department.value = "";
   choices.setChoiceByValue("");
 }
-
-
-// Add the buttons to the table
-// function createEditButtons() {
-//   const editButton = document.createElement("button");
-//   editButton.className = "btn btn-primary";
-//   editButton.textContent = "Edit";
-//   editButton.addEventListener("click", () => {
-//     bootstrap.Modal.getInstance(modal).show();
-//   });
-//   let td = document.createElement("td")
-//   td.appendChild(editButton);
-//   return td;
-// }
