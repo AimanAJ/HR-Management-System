@@ -85,30 +85,42 @@
           <p>HR and task system</p>
         </div>
       </div>
-      <ul class="side-bar-links" style="padding: 0 0 0 32px; margin: 0 0 16px">
-        <li>
-          <a href="dashboard.html">
-            <div class="dashboard-icon icon"></div>
-            <span>Dashboard</span>
-          </a>
+      <ul class="side-bar-links">
+        <li class="active hr" >
+          <a href="#"
+            ><div class="dashboard-icon icon"></div>
+            <span>Dashboard</span></a
+          >
         </li>
-        <li>
-          <a href="employees.html">
-            <div class="employee-icon icon"></div>
-            <span>Employees</span>
-          </a>
+        <li class="hr" >
+          <a href="employees.html"
+            ><div class="employee-icon icon"></div>
+            <span>Employees</span></a
+          >
         </li>
-        <li class="active">
-          <a href="tasks_tracker.html">
-            <div class="tasks-icon icon"></div>
-            <span>Tasks Tracker</span>
-          </a>
+        <li class="hr">
+          <a href="tasks_tracker.html"
+            ><div class="tasks-icon icon"></div>
+            <span> Tasks Tracker</span></a
+          >
         </li>
-        <li>
-          <a href="leave_application.html">
-            <div class="leave-icon icon"></div>
-            <span>Leaves</span>
-          </a>
+        <li class="employee">
+          <a href="tasks_tracker_employee.html"
+            ><div class="tasks-icon icon"></div>
+            <span>Employee Tasks Tracker</span></a
+          >
+        </li>
+        <li class="hr">
+          <a href="leave_application.html"
+            ><div class="leave-icon icon"></div>
+            <span>Leaves</span></a
+          >
+        </li>
+        <li class="employee">
+          <a href="leave_application_employee.html"
+            ><div class="leave-icon icon"></div>
+            <span>Employee Leaves</span></a
+          >
         </li>
       </ul>
     </div>
@@ -201,11 +213,11 @@
         <div class="header my-4">
           <h1>Task Tracking</h1>
           <div>
-            <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#new-task-form">
+            <!-- <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#new-task-form">
               <i class="bi bi-plus-square me-2"></i> Add task
             </button>
             <button type="button" class="btn btn-primary me-2" title="Export Tasks" onclick="exportToPDF()">
-              <i class="bi bi-file-arrow-down"></i>
+              <i class="bi bi-file-arrow-down"></i> -->
             </button>
           </div>
         </div>
