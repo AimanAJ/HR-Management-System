@@ -69,7 +69,7 @@ function logout() {
   // Simulate a logout process without deleting user data
   localStorage.setItem("loggedIn", "false");
   checkLoginStatus(false);
-  window.location.href = "../../../index.html";
+  window.location.href = "/HR-Management-System/index.html";
 }
 let logoutBtn = document.getElementById("logout");
 if (logoutBtn) logoutBtn.addEventListener("click", logout);

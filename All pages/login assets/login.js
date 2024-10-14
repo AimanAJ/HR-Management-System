@@ -139,7 +139,7 @@ loginForm.addEventListener("submit", function (event) {
     // Proceed with successful login actions here
     delete loggedInUser.password; // Remove password from the logged-in user object
     localStorage.setItem("loggedInUser", JSON.stringify(loggedInUser));
-    window.location.href = "../../index.html"; // Redirect to your main page
+    window.location.href = "/HR-Management-System/index.html"; // Redirect to your main page
   } else {
     document.querySelector(".login-error").innerText =
       "Please check your email, password, or both.";
@@ -151,5 +151,5 @@ function logout() {
   localStorage.removeItem("loggedIn");
   localStorage.removeItem("loggedInUser");
   localStorage.removeItem("userRole"); // Remove user role on logout
-  window.location.href = "login.html"; // Redirect to login page
+  window.location.href = "/HR-Management-System/login.html"; // Redirect to login page
 }
