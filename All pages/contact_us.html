@@ -365,8 +365,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand">
-          <img class="img-fluid" src="/HR-Management-System/All pages/assest/images/logojpg.jpg" alt="GateWay-logo" width="48px"
-            height="48px" />
+          <img class="img-fluid" src="/HR-Management-System/All pages/assest/images/logojpg.jpg" alt="GateWay-logo"
+            width="48px" height="48px" />
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav_lc"
           aria-controls="nav_lc" aria-expanded="false" aria-label="Toggle navigation">
@@ -405,8 +405,10 @@
             </li>
           </ul>
           <div class="ms-lg-auto d-flex">
-            <a class="btn btn-outline-primary me-2 " href="/HR-Management-System/All pages/login.html" id="login">Login</a>
-            <a class="btn btn-primary me-2" href="/HR-Management-System/All pages/register.html" id="register">Register</a>
+            <a class="btn btn-outline-primary me-2 " href="/HR-Management-System/All pages/login.html"
+              id="login">Login</a>
+            <a class="btn btn-primary me-2" href="/HR-Management-System/All pages/register.html"
+              id="register">Register</a>
             <a class="btn btn-outline-primary me-2 " href="#" id="logout">Logout</a>
             <a class="btn btn-primary" href="/HR-Management-System/All pages/Profile.html" id="profile-info">Profile</a>
           </div>
@@ -472,11 +474,11 @@
 
   <div class="contact_us_green">
     <h1 style="text-align: center; margin-top: 10px;">Contact Us</h1>
-    <div class="responsive-container-block big-container" >
+    <div class="responsive-container-block big-container">
       <div class="responsive-container-block container">
         <div class="responsive-cell-block" id="ifgi">
           <div class="container-box">
-           
+
             <div class="workik-contact-bigbox">
               <div class="workik-contact-box">
                 <div class="mail text-box">
@@ -513,7 +515,7 @@
           </div>
         </div>
         <div class="responsive-cell-block" id="i69b-2">
-          <form class="form-box" id="contact-us-form">
+          <!-- <form class="form-box" id="contact-us-form">
             <div class="container-block form-wrapper">
               <div class="head-text-box">
                 <p class="text-blk contactus-head">
@@ -575,8 +577,73 @@
                 </button>
               </div>
             </div>
+          </form> -->
+
+          <form class="form-box" id="contact-us-form" onsubmit="return false;">
+            <div class="container-block form-wrapper">
+              <div class="head-text-box">
+                <p class="text-blk contactus-head">
+                  Contact us
+                </p>
+                <p class="text-blk contactus-subhead"></p>
+              </div>
+              <div class="responsive-container-block">
+                <p class="text-blk input-title" id="pra">Send a feedback!</p>
+                <div class="responsive-cell-block">
+                  <p class="text-blk input-title">
+                    Name
+                  </p>
+                  <input required class="input" id="name" name="FirstName">
+                </div>
+                <div class="responsive-cell-block">
+                  <p class="text-blk input-title">
+                    Title
+                  </p>
+                  <input required class="input" id="title" name="Title">
+                </div>
+                <div class="responsive-cell-block">
+                  <p class="text-blk input-title">
+                    Email
+                  </p>
+                  <input type="email" required class="input" id="email" name="Email" onblur="emailErr()">
+                  <span class="emailSpan" style="display:none; color:red;">The email is not valid</span>
+                </div>
+              </div>
+              <div class="responsive-cell-block">
+                <p class="text-blk input-title">
+                  Subject
+                </p>
+                <input required class="input" id="subject" name="Subject">
+              </div>
+              <div class="responsive-cell-block">
+                <p class="text-blk input-title" id="urmsg">
+                  Your message
+                </p>
+                <textarea required class="textinput" id="message"></textarea>
+              </div>
+              <div class="responsive-cell-block">
+                <p class="text-blk input-title">
+                  Gender
+                </p>
+                <div class="radio-wrapper">
+                  <input type="radio" name="gender" id="male" checked>
+                  <label for="male">Male</label>
+                  <input type="radio" name="gender" id="female">
+                  <label for="female">Female</label>
+                </div>
+              </div>
+              <div class="btn-wrapper">
+                <button class="submit-btn" type="submit">
+                  <i class="fa-solid fa-paper-plane mes"></i>
+                  Send Message
+                </button>
+              </div>
+            </div>
+          </form>
+
+          
         </div>
-        </form>
+
       </div>
     </div>
   </div>
@@ -663,12 +730,48 @@
 
 
   <script>
-    const myModal = document.getElementById('feedback-message')
 
-    // myInput.focus()
+    // const myModal = document.getElementById('feedback-message')
 
+    // // myInput.focus()
 
-
+    // let nameL = document.getElementById('name');
+    // let titleL = document.getElementById('title');
+    // let emailL = document.getElementById('email');
+    // let subjectL = document.getElementById('subject');
+    // let messageL = document.getElementById('message');
+    // var emailSpan = document.querySelector('.emailSpan');
+    // function SaveFeedback() {
+    //   var formEntry = {
+    //     Name: nameL.value,
+    //     Title: titleL.value,
+    //     Email: emailL.value,
+    //     Subject: subjectL.value,
+    //     Message: messageL.value,
+    //     Gender: document.getElementById('male').checked ? 'Male' : 'Female',
+    //     Date: new Date().toISOString()
+    //   };
+    //   var entries = JSON.parse(localStorage.getItem('feedbackEntries')) || [];
+    //   entries.push(formEntry);
+    //   localStorage.setItem('feedbackEntries', JSON.stringify(entries));
+    //   const myModal = document.getElementById('exampleModal')
+    //   let modalDialog = document.getElementsByClassName('modal-dialog')[1]
+    //   if (!bootstrap.Modal.getInstance(myModal)) {
+    //     new bootstrap.Modal(myModal);
+    //   }
+    //   bootstrap.Modal.getInstance(myModal).show();
+    //   modalDialog.style.display = 'block';
+    // }
+    // document.getElementById("contact-us-form").addEventListener("submit", event => { event.preventDefault(); SaveFeedback() })
+    // const ContactEmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // function emailErr() {
+    //   if (ContactEmailRegex.test(emailL.value)) {
+    //     emailSpan.style.display = 'none';
+    //   }
+    //   else {
+    //     emailSpan.style.display = 'inline';
+    //   }
+    // }
 
     let nameL = document.getElementById('name');
     let titleL = document.getElementById('title');
@@ -676,7 +779,10 @@
     let subjectL = document.getElementById('subject');
     let messageL = document.getElementById('message');
     var emailSpan = document.querySelector('.emailSpan');
+
+    // Save the feedback entry into localStorage
     function SaveFeedback() {
+      // Create an object from form data
       var formEntry = {
         Name: nameL.value,
         Title: titleL.value,
@@ -686,27 +792,48 @@
         Gender: document.getElementById('male').checked ? 'Male' : 'Female',
         Date: new Date().toISOString()
       };
+
+      // Retrieve existing entries from localStorage or initialize an empty array
       var entries = JSON.parse(localStorage.getItem('feedbackEntries')) || [];
+
+      // Add the new form entry to the array
       entries.push(formEntry);
+
+      // Save updated array back to localStorage
       localStorage.setItem('feedbackEntries', JSON.stringify(entries));
-      const myModal = document.getElementById('exampleModal')
-      let modalDialog = document.getElementsByClassName('modal-dialog')[1]
+
+      // Display a success message (assuming you have a modal with ID 'exampleModal')
+      const myModal = document.getElementById('exampleModal');
+      let modalDialog = document.getElementsByClassName('modal-dialog')[1];
+
       if (!bootstrap.Modal.getInstance(myModal)) {
         new bootstrap.Modal(myModal);
       }
+
+      // Show modal
       bootstrap.Modal.getInstance(myModal).show();
       modalDialog.style.display = 'block';
     }
-    document.getElementById("contact-us-form").addEventListener("submit", event => { event.preventDefault(); SaveFeedback() })
+
+    // Form submission event handler
+    document.getElementById("contact-us-form").addEventListener("submit", event => {
+      // Prevent default form submission
+      event.preventDefault();
+
+      // Save feedback to localStorage
+      SaveFeedback();
+    });
+
+    // Email validation
     const ContactEmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     function emailErr() {
       if (ContactEmailRegex.test(emailL.value)) {
         emailSpan.style.display = 'none';
-      }
-      else {
+      } else {
         emailSpan.style.display = 'inline';
       }
     }
+
   </script>
 
 </body>

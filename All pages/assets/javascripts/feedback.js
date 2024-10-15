@@ -1,4 +1,9 @@
 function createCard() {
+  // localStorage.setItem("feedbackEntries", JSON.stringify([
+  //   { Name: 'John Doe', Email: 'john@example.com', Gender: 'Male', Subject: 'Feedback Subject', Message: 'This is a test message', Title: 'Employee', Date: '2024-10-15T12:00:00' }
+  // ]));
+
+  
   var entries = JSON.parse(localStorage.getItem("feedbackEntries")) || [];
   var emailToCardsMap = {}; // Map email to an array of cards (if any)
   var feedbackContainer = document.getElementById("feedbackContainer");
