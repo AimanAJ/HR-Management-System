@@ -6,12 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="assest/css/footer.css" />
   <link rel="stylesheet" href="assets/css/bootstrap.css" />
-  <link rel="stylesheet" href="assets/css/icons.css" />
+  <link rel="stylesheet" href="assest/css/footer.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/icons.css" />
+  <link rel="stylesheet" href="assets/css/tasks.css" />
+  <link rel="stylesheet" href="assets/css/create_task.css" />
   <link rel="stylesheet" href="assets/bootstrap-icons/font/bootstrap-icons.css" />
-  <title>Employees</title>
+  <style>
+    .custom-tooltip {
+      --bs-tooltip-bg: var(--bd-violet-bg);
+      --bs-tooltip-color: var(--bs-white);
+    }
+  </style>
+  <title>Dashboard</title>
 </head>
 
 <body>
@@ -71,9 +79,9 @@
     </nav>
   </header>
   <main class="dashboard">
-    <aside class="side-bar">
+    <div class="side-bar">
       <div class="side-bar-log">
-        <img src="assets/images/logo.png" alt="logo" />
+        <img src="/HR-Management-System/All pages/assets/images/logo.png" alt="logo" />
         <div>
           <h2>Gateway</h2>
           <p>HR and task system</p>
@@ -81,7 +89,7 @@
       </div>
       <ul class="side-bar-links">
         <li class="active hr">
-          <a href="dashboard.html">
+          <a href="#">
             <div class="dashboard-icon icon"></div>
             <span>Dashboard</span>
           </a>
@@ -117,35 +125,43 @@
           </a>
         </li>
       </ul>
-    </aside>
-    <div class="page">
-      <h1 class="text-center mt-2">Employees</h1>
-
-      <div class="container">
-        <div class="tables">
-          <div class="table-taps">
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <i class="bi bi-layout-three-columns"></i>
-              </button>
-              <ul id="employee-table-columns" class="dropdown-menu"></ul>
-            </div>
-            <div>
-              <input class="form-control my-4" type="search" id="filter" aria-label="Search"
-                placeholder="ex. John Smith" />
-            </div>
-          </div>
-          <div class="table-container">
-            <table class="table table-striped table-hover" id="employee-table">
-              <thead></thead>
-              <tbody></tbody>
-            </table>
-          </div>
-        </div>
-      </div>
     </div>
+
+
+
+      <main class="container mt-4">
+        <h2>Attendance Tracker</h2>
+        <button class="btn btn-success" id="punchInButton">Punch In</button>
+        <button class="btn btn-danger" id="punchOutButton" disabled>Punch Out</button>
+
+        <table class="table table-striped mt-4" id="attendanceTable">
+            <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Employee Name</th>
+                  <th>Job Title</th>
+                  <th>Punch In Time</th>
+                  <th>Punch Out Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Attendance records will be populated here -->
+            </tbody>
+        </table>
+    </main>
+
+
+ 
+
+
+
+
+
   </main>
+
+
+
+
   <!-- footer -->
   <footer class="footer-section">
     <div class="container">
@@ -218,10 +234,19 @@
     </div>
   </footer>
   <!-- end of footer -->
-  <script type="module" src="assets/javascripts/employee_table.js"></script>
-  <script src="assets/javascripts/popper.min.js"></script>
+
+  <script>
+
+  </script>
+
   <script src="assets/javascripts/bootstrap.js"></script>
+  <script src="assets/javascripts/create_new_task_employee.js"></script>
   <script src="assest/js/navbar.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+  <script src="assets/javascripts/dragDropTasks.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.20/jspdf.plugin.autotable.min.js"></script>
+  <script src="assets/javascripts/Attendance.js"></script>
 </body>
 
 </html>

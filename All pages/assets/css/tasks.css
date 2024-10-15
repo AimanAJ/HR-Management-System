@@ -69,7 +69,19 @@
   background: #d0d0d0;
   border-radius: var(--border-radius);
   margin-bottom: 5px;
+  cursor: -webkit-grab; cursor: grab;
   .badge {
     margin-bottom: 5px;
   }
+}
+
+
+p.task-assigned-members {
+  text-align: center;
+  border: 1px black solid;
+  background: center;
+  border-radius: 10px;
+  width: fit-content;
+  margin: 5px auto;
+  padding: 4px 10px;
 }

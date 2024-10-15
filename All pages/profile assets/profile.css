@@ -1,7 +1,11 @@
 body {
   background-color: #ffffff;
 }
-
+.profile-info {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
 nav {
   background-color: #1a1a1a;
   color: white;
