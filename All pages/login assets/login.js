@@ -79,13 +79,13 @@ const rememberMeCheckbox = document.querySelector(".remember-forgot input");
 const usersData = {
   hr: {
     name: "John Doe",
-    email: "hr@example.com",
+    email: "hr@orange.com",
     password: "hrpassword",
     role: "hr"
   },
   employee: {
     name: "Ahmad Ali",
-    email: "ahmad.ali@example.com",
+    email: "ahmad.ali@orange.com",
     password: "emppassword",
     role: "employee"
   }
