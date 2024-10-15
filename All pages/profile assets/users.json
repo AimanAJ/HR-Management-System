@@ -356,24 +356,24 @@
         "id": "004567890",
         "email": "abdullah@gmail.com",
         "phone": "0770123134",
-        "address": "market street",
+        "address": "HR",
         "country": "Jordan",
-        "city": "Salt",
-        "first_name": "Abdullah",
-        "last_name": "Jabri"
+        "city": "Irbid",
+        "first_name": "Mohammad",
+        "last_name": ""
       },
       "education": [
         {
-          "date": 2019,
+          "date": 2010,
           "description": "Bachelor's degree in Computer Science"
         },
         {
-          "date": 2021,
+          "date": 2013,
           "description": "Master's degree in Data Science"
         }
       ],
       "job": {
-        "job_title": "Software Developer",
+        "job_title": "HR Manager",
         "department": "IT",
         "employee_type": "Full time",
         "start_date": "Jan 10, 2022",
@@ -381,7 +381,7 @@
         "line_manager": "109876543"
       },
       "account": {
-        "password": "12345678",
+        "password": "",
         "is_hr": true
       }
     },

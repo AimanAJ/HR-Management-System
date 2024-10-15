@@ -53,7 +53,7 @@ function checkLoginStatus(isLoggedIn) {
     document.getElementById("services").parentElement.remove();
     document.getElementById("profile-info").style.display = "none";
     document.getElementById("login").style.display = "block";
-    document.getElementById("register").style.display = "block";
+    document.getElementById("register").style.display = "none";
     document.getElementById("logout").style.display = "none";
   }
 }
