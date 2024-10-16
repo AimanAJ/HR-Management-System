@@ -18,6 +18,9 @@ try {
   console.warn("Couldn't find the user in the local storage.");
 }
 
+let user_role = JSON.parse(localStorage.getItem("loggedInUser"));
+// console.log(user_role.role);
+
 function addAction(actionTitle, actionBody) {
   let actions =
     (localStorage.actions && JSON.parse(localStorage.actions)) || [];
@@ -109,9 +112,9 @@ function crateNewLeave(leave) {
   addAction(
     "Create New Leave",
     "Create a new leave for " +
-      employeeData.find(
-        (employee) => employee["Employee ID"] === leave.employeeId
-      )["Full Name"]
+    employeeData.find(
+      (employee) => employee["Employee ID"] === leave.employeeId
+    )["Full Name"]
   );
 }
 
@@ -128,9 +131,9 @@ function updateLeave(leave) {
   addAction(
     "Leave Updated",
     "Update the leave for " +
-      employeeData.find(
-        (employee) => employee["Employee ID"] === leave.employeeId
-      )["Full Name"]
+    employeeData.find(
+      (employee) => employee["Employee ID"] === leave.employeeId
+    )["Full Name"]
   );
 }
 
@@ -178,21 +181,79 @@ async function margeEmployeeDataWithLeaves() {
   }
 }
 
-async function populateLeavesData() {
-  // For getting the data in the table.
-  leavesWithEmployeesData = [];
-  await margeEmployeeDataWithLeaves();
-  createTable(table, leavesWithEmployeesData, tableHeadings);
-  for (const tr of document.getElementsByTagName("tr")) {
-    if (tr.id) {
-      tr.appendChild(createEditButtons());
-    }
-    else{
-      let th = document.createElement("th");
-      tr.appendChild(th);
-    }
+
+
+
+
+
+
+function populateLeavesData() {
+  const tbody = document.getElementById("leave-table-body");
+  tbody.innerHTML = "";
+
+  if (user_role.role === "manager") {
+
+    leaves.forEach((leave) => {
+      const row = document.createElement("tr");
+      console.log(leave.id);
+
+      if (leave.status == "Pending") {
+        row.innerHTML = `
+         <td>${leave.employeeId}</td>
+         <td>${leave.leaveType}</td>
+         <td>${leave.reason}</td>
+         <td>${leave.startDate}</td>
+         <td>${leave.endDate}</td>
+         <td>${leave.status}</td>
+         <td>
+           <button class="btn btn-success" onclick="updateLeaveStatus(${leave.id}, 'Approved')">Approve</button>
+           <button class="btn btn-danger" onclick="updateLeaveStatus(${leave.id}, 'Rejected')">Reject</button>
+         </td>
+       `;
+      }
+      else {
+        row.innerHTML = `
+         <td>${leave.employeeId}</td>
+         <td>${leave.leaveType}</td>
+         <td>${leave.reason}</td>
+         <td>${leave.startDate}</td>
+         <td>${leave.endDate}</td>
+         <td>${leave.status}</td>
+         `;
+      }
+
+      tbody.appendChild(row);
+    });
+  }
+  else if (user_role.role === "hr") {
+    leaves.forEach((leave) => {
+      const row = document.createElement("tr");
+      console.log(leave.id);
+
+      if (leave.status == "Approved") {
+        row.innerHTML = `
+      <td>${leave.employeeId}</td>
+      <td>${leave.leaveType}</td>
+      <td>${leave.reason}</td>
+      <td>${leave.startDate}</td>
+      <td>${leave.endDate}</td>
+      <td>${leave.status}</td>
+      `;
+
+      }
+      tbody.appendChild(row);
+    });
+
+    document.getElementById("vmanager").style.display = "none";
   }
 }
+
+
+
+
+
+
+
 
 // For filtering
 let filterInput = document.getElementById("filter");

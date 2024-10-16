@@ -80,27 +80,33 @@
         </div>
       </div>
       <ul class="side-bar-links">
-        <li class=" " >
-          <a href="dashboard.html"
-            ><div class="dashboard-icon icon"></div>
-            <span>Dashboard</span></a
-          >
+        <li class="manager ">
+          <a href="dashboard.html">
+            <div class="dashboard-icon icon"></div>
+            <span>Dashboard</span>
+          </a>
         </li>
-        <li class="" >
-          <a href="employees.html"
-            ><div class="employee-icon icon"></div>
-            <span>Employees</span></a
-          >
+        <li class="manager ">
+          <a href="tasks_tracker.html">
+            <div class="tasks-icon icon"></div>
+            <span> Tasks Tracker</span>
+          </a>
         </li>
-       
-       
+        <li class=" ">
+          <a href="employees.html">
+            <div class="employee-icon icon"></div>
+            <span>Employees</span>
+          </a>
+        </li>
+
+
         <li class="active">
-          <a href="leave_application.html"
-            ><div class="leave-icon icon"></div>
-            <span>Leave Management</span></a
-          >
+          <a href="leave_application.html">
+            <div class="leave-icon icon"></div>
+            <span>Leave Management</span>
+          </a>
         </li>
-       
+
       </ul>
     </div>
     <div class="page">
@@ -171,7 +177,7 @@
         </button> -->
       </div>
 
-      <div class="container">
+      <!-- <div class="container">
         <div class="tables">
           <div class="table-taps">
             <div class="dropdown">
@@ -193,7 +199,53 @@
             </table>
           </div>
         </div>
+      </div> -->
+
+
+
+      <div class="container">
+        <div class="tables">
+          <div class="table-taps">
+            <div class="dropdown">
+              <!-- <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                <i class="bi bi-layout-three-columns"></i>
+              </button>
+              <ul id="leave-columns-selector" class="dropdown-menu"></ul> -->
+            </div>
+            <div>
+              <input class="form-control my-4" type="search" id="filter" aria-label="Search"
+                placeholder="ex. John Smith" />
+            </div>
+          </div>
+          <div class="table-container">
+            <table class="table">
+              <thead>
+                <tr>
+
+                  <th>Employee</th>
+                  <th>Leave Type</th>
+                  <th>Reason</th>
+                  <th>Start Date</th>
+                  <th>End Date</th>
+                  <th>Status</th>
+                  <th id="vmanager">Action</th>
+                </tr>
+              </thead>
+              <tbody id="leave-table-body">
+                <!-- Rows will be dynamically inserted here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
+
+
+
+
+
+
+
     </div>
   </main>
   <!-- footer -->
@@ -267,6 +319,27 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    function updateLeaveStatus(leaveId, newStatus) {
+      let leaves = JSON.parse(localStorage.getItem('leaves')) || [];
+
+      for (const i of leaves) {
+        console.log(i.id);
+
+        if (i.id == leaveId) {
+          i.status = newStatus;
+          break
+        }
+      }
+
+      // Update the leaves array in local storage
+      localStorage.setItem('leaves', JSON.stringify(leaves));
+
+      window.location.reload();
+    }
+
+  </script>
   <!-- end of footer -->
   <script src="assets/javascripts/popper.min.js"></script>
   <script src="assets/javascripts/bootstrap.js"></script>
