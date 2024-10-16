@@ -302,15 +302,15 @@ function resetForm() {
 }
 
 
-// Add the buttons to the table
-function createEditButtons() {
-  const editButton = document.createElement("button");
-  editButton.className = "btn btn-primary";
-  editButton.textContent = "Edit";
-  editButton.addEventListener("click", () => {
-    bootstrap.Modal.getInstance(modal).show();
-  });
-  let td = document.createElement("td")
-  td.appendChild(editButton);
-  return td;
-}
+//// Add the buttons to the table
+// function createEditButtons() {
+//   const editButton = document.createElement("button");
+//   editButton.className = "btn btn-primary";
+//   editButton.textContent = "Edit";
+//   editButton.addEventListener("click", () => {
+//     bootstrap.Modal.getInstance(modal).show();
+//   });
+//   let td = document.createElement("td")
+//   td.appendChild(editButton);
+//   return td;
+// }

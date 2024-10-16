@@ -123,7 +123,7 @@ function createTableWithAttendanceButton() {
                 viewButton.innerText = "View Attendance";
                 viewButton.addEventListener("click", () => {
                     // Redirect to attendance page with employee ID in URL
-                    window.location.href = `Attendance_view.html?employeeId=${employee["Employee ID"]}`;
+                    window.location.href = `Attendance_view_manager.html?employeeId=${employee["Employee ID"]}`;
                 });
                 cell.appendChild(viewButton);
             } else {

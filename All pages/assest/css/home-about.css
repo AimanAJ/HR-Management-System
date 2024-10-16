@@ -1,5 +1,7 @@
 
-
+.container.service img {
+  height: 250px;
+}
 
 section.bg-light.py-5.py-xl-8 {
   /* background-color: #eee !important; */

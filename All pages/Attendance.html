@@ -88,68 +88,54 @@
         </div>
       </div>
       <ul class="side-bar-links">
-        <li class="active hr">
-          <a href="#">
-            <div class="dashboard-icon icon"></div>
-            <span>Dashboard</span>
-          </a>
-        </li>
-        <li class="hr">
-          <a href="employees.html">
-            <div class="employee-icon icon"></div>
-            <span>Employees</span>
-          </a>
-        </li>
-        <li class="hr">
-          <a href="tasks_tracker.html">
-            <div class="tasks-icon icon"></div>
-            <span> Tasks Tracker</span>
-          </a>
-        </li>
+        
         <li class="employee">
-          <a href="tasks_tracker_employee.html">
-            <div class="tasks-icon icon"></div>
-            <span>Tasks Tracker</span>
-          </a>
+          <a href="Attendance.html"
+            ><div class="tasks-icon icon"></div>
+            <span>Attendance</span></a
+          >
         </li>
-        <li class="hr">
-          <a href="leave_application.html">
-            <div class="leave-icon icon"></div>
-            <span>Leaves</span>
-          </a>
-        </li>
+
         <li class="employee">
-          <a href="leave_application_employee.html">
-            <div class="leave-icon icon"></div>
-            <span>My Leaves</span>
-          </a>
+          <a href="tasks_tracker_employee.html"
+            ><div class="tasks-icon icon"></div>
+            <span>Tasks Tracker</span></a
+          >
+        </li>
+       
+        <li class="employee">
+          <a href="leave_application_employee.html"
+            ><div class="leave-icon icon"></div>
+            <span>My Leaves</span></a
+          >
         </li>
       </ul>
     </div>
 
 
 
-      <main class="container mt-4">
-        <h2>Attendance Tracker</h2>
-        <button class="btn btn-success" id="punchInButton">Punch In</button>
-        <button class="btn btn-danger" id="punchOutButton" disabled>Punch Out</button>
-
-        <table class="table table-striped mt-4" id="attendanceTable">
-            <thead>
-                <tr>
+    <main class="container mt-4">
+      <h2>Attendance Tracker</h2>
+      <button class="btn btn-success" id="punchInButton">Punch In</button>
+      <button class="btn btn-danger" id="punchOutButton" disabled>Punch Out</button>
+  
+      <table class="table table-striped mt-4" id="attendanceTable">
+          <thead>
+              <tr>
                   <th>Date</th>
                   <th>Employee Name</th>
                   <th>Job Title</th>
                   <th>Punch In Time</th>
                   <th>Punch Out Time</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Attendance records will be populated here -->
-            </tbody>
-        </table>
-    </main>
-
+                  <th>Working Hours</th> <!-- Added column for working hours -->
+              </tr>
+          </thead>
+          <tbody>
+              <!-- Attendance records will be populated here -->
+          </tbody>
+      </table>
+  </main>
+  
 
  
 

@@ -33,18 +33,24 @@ function checkLoginStatus(isLoggedIn) {
     document.getElementById("register").style.display = "none";
     document.getElementById("logout").style.display = "block";
 
-    const userRole = localStorage.getItem("userRole") ;
-      // Check if user is HR
-      if (userRole === "hr") {
-        // Show dashboard for HR users
-        setDisplayByClass("hr", "block");      // Hides all elements with class "hr"
-        setDisplayByClass("employee", "none"); // Shows all elements with class "employee"
-      } else {
-        
-        // Hide dashboard for non-HR users
-        setDisplayByClass("hr", "none");      // Hides all elements with class "hr"
-        setDisplayByClass("employee", "block"); // Shows all elements with class "employee"
-      }
+    const userRole = localStorage.getItem("userRole");
+    // Check if user is HR
+    if (userRole === "hr") {
+      // Show dashboard for HR users
+      setDisplayByClass("hr", "block");
+      setDisplayByClass("employee", "none");
+      setDisplayByClass("manager", "none");
+    } else if (userRole === "manager") {
+
+      setDisplayByClass("hr", "none");
+      setDisplayByClass("employee", "none");
+      setDisplayByClass("manager", "block");
+    }
+    else {
+      setDisplayByClass("hr", "none");
+      setDisplayByClass("employee", "block");
+      setDisplayByClass("manager", "none");
+    }
 
 
   } else {
