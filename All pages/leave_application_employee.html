@@ -80,26 +80,26 @@
         </div>
       </div>
       <ul class="side-bar-links">
-        
+
         <li class="employee">
-          <a href="Attendance.html"
-            ><div class="tasks-icon icon"></div>
-            <span>Attendance</span></a
-          >
+          <a href="Attendance.html">
+            <div class="tasks-icon icon"></div>
+            <span>Attendance</span>
+          </a>
         </li>
 
         <li class="employee">
-          <a href="tasks_tracker_employee.html"
-            ><div class="tasks-icon icon"></div>
-            <span>Tasks Tracker</span></a
-          >
+          <a href="tasks_tracker_employee.html">
+            <div class="tasks-icon icon"></div>
+            <span>Tasks Tracker</span>
+          </a>
         </li>
-       
+
         <li class="employee active">
-          <a href="leave_application_employee.html"
-            ><div class="leave-icon icon"></div>
-            <span>My Leaves</span></a
-          >
+          <a href="leave_application_employee.html">
+            <div class="leave-icon icon"></div>
+            <span>My Leaves</span>
+          </a>
         </li>
       </ul>
     </div>
@@ -163,18 +163,20 @@
             </div>
           </div>
         </div> -->
-        <div class="modal fade" id="new-leave-form" tabindex="-1" aria-labelledby="new-leave-formLabel" aria-hidden="true">
+        <div class="modal fade" id="new-leave-form" tabindex="-1" aria-labelledby="new-leave-formLabel"
+          aria-hidden="true">
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
                 <h1 class="modal-title fs-5" id="new-leave-formLabel">Add Leave.</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="add-leave-button"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                  id="add-leave-button"></button>
               </div>
               <div class="modal-body">
                 <div class="mb-3">
                   <label for="employee-name" class="form-label">Employee</label>
                   <select name="Employee ID" class="form-select" id="employee-name" required>
-                    <option value="1">Ahmad Ali</option> <!-- Pre-fill for Ahmad Ali -->
+                    <option value=""></option> <!-- Pre-fill for Ahmad Ali -->
                   </select>
                 </div>
                 <div class="mb-3">
@@ -215,8 +217,8 @@
             </div>
           </div>
         </div>
-      
-      
+
+
       </form>
       <div class="header my-4">
         <h1>Leaves Applications</h1>
@@ -240,7 +242,8 @@
               <ul id="leave-columns-selector" class="dropdown-menu"></ul> -->
             </div>
             <div>
-              <input class="form-control my-4" type="search" id="filter" aria-label="Search" placeholder="ex. John Smith" />
+              <input class="form-control my-4" type="search" id="filter" aria-label="Search"
+                placeholder="ex. John Smith" />
             </div>
           </div>
           <div class="table-container">
@@ -266,7 +269,7 @@
 
 
 
-      
+
     </div>
   </main>
   <!-- footer -->
@@ -340,6 +343,150 @@
       </div>
     </div>
   </footer>
+
+
+  <script>
+
+
+
+
+
+
+    // document.addEventListener("DOMContentLoaded", function () {
+
+    //   function insertDefaultAttendanceData() {
+    //     if (!localStorage.getItem("leaves")) {
+    //       const defaultData = [
+    //         {
+    //           employeeId: "Ayman Aljaradat",
+    //           leaveType: "Annual Leave",
+    //           startDate: "2024-10-17",
+    //           endDate: "2024-10-26",
+    //           reason: "aa",
+    //           status: "Pending",
+    //           id: "1"
+    //         },
+    //         {
+    //           employeeId: "Ayman Aljaradat",
+    //           leaveType: "Annual Leave",
+    //           startDate: "2024-10-17",
+    //           endDate: "2024-10-26",
+    //           reason: "aa",
+    //           status: "Pending",
+    //           id: "1"
+    //         },
+    //         {
+    //           employeeId: "Ayman Aljaradat",
+    //           leaveType: "Annual Leave",
+    //           startDate: "2024-10-17",
+    //           endDate: "2024-10-26",
+    //           reason: "aa",
+    //           status: "Pending",
+    //           id: "2"
+    //         },
+    //         {
+    //           employeeId: "Ayman Aljaradat",
+    //           leaveType: "Annual Leave",
+    //           startDate: "2024-10-17",
+    //           endDate: "2024-10-26",
+    //           reason: "aa",
+    //           status: "Pending",
+    //           id: "3"
+    //         },
+    //         {
+    //           employeeId: "Ayman Aljaradat",
+    //           leaveType: "Annual Leave",
+    //           startDate: "2024-10-17",
+    //           endDate: "2024-10-26",
+    //           reason: "aa",
+    //           status: "Pending",
+    //           id: "4"
+    //         }
+    //       ];
+    //       localStorage.setItem("leaves", JSON.stringify(defaultData));
+    //     }
+    //   }
+    //   console.log(11111111111);
+    //   // Call the function to insert default data on load (only once)
+    //   insertDefaultAttendanceData();
+
+    // });
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+      function insertDefaultAttendanceData() {
+        let leaves = localStorage.getItem("leaves");
+
+        // Debugging check to see if leaves are retrieved correctly
+        console.log("Initial leaves value: ", leaves);
+
+        // If 'leaves' is not found or empty, insert default data
+        if (!leaves || leaves === "[]") {
+          const defaultData = [
+            {
+              employeeId: "Ayman Aljaradat",
+              leaveType: "Annual Leave",
+              startDate: "2024-10-17",
+              endDate: "2024-10-26",
+              reason: "aa",
+              status: "Pending",
+              id: "1"
+            },
+            {
+              employeeId: "Ayman Aljaradat",
+              leaveType: "Annual Leave",
+              startDate: "2024-10-17",
+              endDate: "2024-10-26",
+              reason: "aa",
+              status: "Pending",
+              id: "2"
+            },
+            {
+              employeeId: "Ayman Aljaradat",
+              leaveType: "Annual Leave",
+              startDate: "2024-10-17",
+              endDate: "2024-10-26",
+              reason: "aa",
+              status: "Pending",
+              id: "3"
+            },
+            {
+              employeeId: "Ayman Aljaradat",
+              leaveType: "Annual Leave",
+              startDate: "2024-10-17",
+              endDate: "2024-10-26",
+              reason: "aa",
+              status: "Pending",
+              id: "4"
+            }
+          ];
+
+          localStorage.setItem("leaves", JSON.stringify(defaultData));
+          console.log("Default data inserted.");
+        } else {
+          console.log("Leaves already exist in localStorage.");
+        }
+      }
+
+      // Debugging to check if the DOMContentLoaded is triggered
+      console.log("DOMContentLoaded event fired");
+
+      // Call the function to insert default data on load (only once)
+      insertDefaultAttendanceData();
+
+    });
+
+
+
+
+
+
+
+
+
+
+  </script>
   <!-- end of footer -->
   <script src="assets/javascripts/popper.min.js"></script>
   <script src="assets/javascripts/bootstrap.js"></script>

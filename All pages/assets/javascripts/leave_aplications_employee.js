@@ -365,11 +365,21 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
 import { createTable, filterTable } from "./table_maker.js";
 let editMode = false;
 let editLeave = null;
 let leavesWithEmployeesData = [];
-const url = "assets/data/employees_data.json";
+const url = "assets/data/employees_data2.json";
 const addEmployeeForm = document.getElementById("create-leave-form");
 const employeeNameSelect = document.getElementById("employee-name");
 const jopTitle = document.getElementById("jop-title");
@@ -692,61 +702,3 @@ function createEditButtons() {
 
 
 
-
-document.addEventListener("DOMContentLoaded", function () {
-
-  function insertDefaultAttendanceData() {
-    if (!localStorage.getItem("leaves")) {
-      const defaultData = [
-        {
-          date: "2024-10-12",
-          employeeName: "Ayman Aljaradat",
-          title: "Software Developer",
-          punchIn: "09:00:00",
-          punchOut: "17:00:00",
-          workingHours: "8 H : 0 m"
-        },
-        {
-          date: "2024-10-13",
-          employeeName: "Ayman Aljaradat",
-          title: "Software Developer",
-          punchIn: "09:30:00",
-          punchOut: "18:00:00",
-          workingHours: "8 H : 30 m"
-        },
-        {
-          date: "2024-10-14",
-          employeeName: "Ayman Aljaradat",
-          title: "Software Developer",
-          punchIn: "08:45:00",
-          punchOut: "17:15:00",
-          workingHours: "8 H : 30 m"
-        },
-        {
-          date: "2024-10-15",
-          employeeName: "Ayman Aljaradat",
-          title: "Software Developer",
-          punchIn: "10:00:00",
-          punchOut: "18:00:00",
-          workingHours: "7 H : 0 m"
-        },
-        {
-          date: "2024-10-16",
-          employeeName: "Ayman Aljaradat",
-          title: "Software Developer",
-          punchIn: "08:30:00",
-          punchOut: "16:30:00",
-          workingHours: "8 H : 0 m"
-        }
-      ];
-      localStorage.setItem("leaves", JSON.stringify(defaultData));
-    }
-  }
-
-  // Call the function to insert default data on load (only once)
-  insertDefaultAttendanceData();
-
-
-
-
-});

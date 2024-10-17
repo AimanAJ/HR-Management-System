@@ -1,0 +1,19 @@
+[
+  {
+    "Employee ID": "E02002",
+    "Full Name": "Ayman Aljaradat",
+    "Job Title": "Controls Engineer",
+    "Department": "Engineering",
+    "Business Unit": "Manufacturing",
+    "Gender": "Male",
+    "Ethnicity": "Arab",
+    "Age": 47,
+    "Hire Date": "2/5/2022",
+    "Annual Salary": "$92,368",
+    "Bonus %": "0%",
+    "Country": "Jordan",
+    "City": "Amman",
+    "Exit Date": "",
+    "Profile Image": "https://dummyimage.com/100x100/000/fff&text=Ahmad+Ali"
+  }
+]

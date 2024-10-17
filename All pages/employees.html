@@ -10,6 +10,9 @@
   <link rel="stylesheet" href="assets/css/bootstrap.css" />
   <link rel="stylesheet" href="assets/css/icons.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
+
+  <link rel="stylesheet" href="assets/css/tasks.css" />
+  <link rel="stylesheet" href="assets/css/create_task.css" />
   <link rel="stylesheet" href="assets/bootstrap-icons/font/bootstrap-icons.css" />
   <title>Employees</title>
 </head>
@@ -87,10 +90,10 @@
           </a>
         </li>
         <li class="manager ">
-          <a href="tasks_tracker.html"
-            ><div class="tasks-icon icon"></div>
-            <span> Tasks Tracker</span></a
-          >
+          <a href="tasks_tracker.html"></a>
+          <div class="tasks-icon icon"></div>
+          <span> Tasks Tracker</span>
+          </a>
         </li>
         <li class=" active">
           <a href="employees.html">
@@ -98,17 +101,170 @@
             <span>Employees</span>
           </a>
         </li>
-       
-       
+
+
         <li class="">
           <a href="leave_application.html">
             <div class="leave-icon icon"></div>
             <span>Leave Management</span>
           </a>
         </li>
-       
+
       </ul>
     </aside>
+
+
+
+
+    <!-- <div class="modal fade" id="new-employee-form" tabindex="-1" aria-labelledby="new-employee-formLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="add-task-form">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="new-employee-formLabel">
+                Add new Employee 
+              </h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="formDiv" id="TaskTitleDiv">
+                <label class="MainLabel" for="TaskTitle">Task Title</label>
+                <input required type="text" id="TaskTitle" placeholder="Type name" />
+              </div>
+
+              <div class="formDiv" id="StatusDiv">
+                <label class="MainLabel" for="Status">Status</label>
+                <select name="Status" id="Status" required>
+                  <option value="to-do">To do</option>
+                  <option value="in-progress">In Progress</option>
+                  <option value="completed">Completed</option>
+                  <option value="on-hold">On Hold</option>
+                  <option value="canceled">Canceled</option>
+                </select>
+              </div>
+
+              <div class="formDiv" id="PriorityDiv">
+                <label class="MainLabel" id="PriorityLabel" for="Priority">Priority</label>
+                <div id="PrioritiesOptions">
+                  <div id="HighDiv">
+                    <input required type="radio" name="Priority" value="high" id="High" class="priorityClass" />
+                    <label for="High">High</label>
+                  </div>
+                  <div id="MediumDiv">
+                    <input type="radio" name="Priority" value="medium" id="Medium" class="priorityClass" required />
+                    <label for="Medium">Medium</label>
+                  </div>
+                  <div id="LowDiv">
+                    <input required type="radio" value="low" name="Priority" id="Low" class="priorityClass" />
+                    <label for="Low">Low</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="formDiv" id="StartDateDiv">
+                <label class="MainLabel" for="StartDate">Start Date</label>
+                <input type="date" name="StartDate" id="StartDate" required />
+              </div>
+
+              <div class="formDiv" id="DueDateDiv">
+                <label class="MainLabel" for="DueDate">Due Date</label>
+                <input type="date" name="DueDate" id="DueDate" required />
+              </div>
+
+              <div class="formDiv" id="DescriptionDiv">
+                <label class="MainLabel" for="Description">Description</label>
+                <textarea required name="Description" id="Description"
+                  placeholder="Write description of the task and provide example"></textarea>
+              </div>
+
+              <div class="formDiv" id="AssignMembersDiv">
+                <label class="MainLabel" for="AssignMembersSelect">Assign To Members</label>
+                <div id="membersContainer">
+                  <select required name="members" id="AssignMembersSelect" class="select-dropdown">
+                    <option value="" disabled selected>+ Add person</option>
+                  </select>
+                  <span id="selected-employees"></span>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                Close
+              </button>
+              <button type="submit" class="btn btn-primary">
+                Save changes
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div> -->
+
+
+
+    <!-- Bootstrap Modal for Adding Employee -->
+    <div class="modal fade" id="new-employee-form" tabindex="-1" aria-labelledby="new-employee-formLabel"
+      aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <form id="add-employee-form">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="new-employee-formLabel">Add new Employee</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="formDiv">
+                <label class="MainLabel" for="EmployeeID">Employee ID</label>
+                <input required type="text" id="EmployeeID" placeholder="Type Employee ID" />
+              </div>
+              <div class="formDiv">
+                <label class="MainLabel" for="EmployeeName">Full Name</label>
+                <input required type="text" id="EmployeeName" placeholder="Type name" />
+              </div>
+              <div class="formDiv">
+                <label class="MainLabel" for="Department">Department</label>
+                <!-- <input required type="text" id="Department" placeholder="Type department" /> -->
+
+                <select id="Department" >
+                  <option>Coding Academy</option>
+                  <!-- <option>Sales</option>
+                  <option>Development</option>
+                  <option>QA</option> -->
+                </select>
+
+              </div>
+              <div class="formDiv">
+                <label class="MainLabel" for="Department">Direct manager</label>
+                <!-- <input required type="text" id="Department" placeholder="Type department" /> -->
+
+                <select id="Department" >
+                  <option>Mohammed Frehat</option>
+                  <!-- <option>Sales</option>
+                  <option>Development</option>
+                  <option>QA</option> -->
+                </select>
+
+              </div>
+              <div class="formDiv">
+                <label class="MainLabel" for="JobTitle">Job Title</label>
+                <input required type="text" id="JobTitle" placeholder="Type job title" />
+              </div>
+              <div class="formDiv">
+                <label class="MainLabel" for="HireDate">Hire Date</label>
+                <input type="date" id="HireDate" required />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Add</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
 
 
 
@@ -116,65 +272,50 @@
     <div class="page">
       <h1 class="text-center mt-2">Employees</h1>
 
-      <!-- <div class="container">
+
+
+      <div class="container">
         <div class="tables">
           <div class="table-taps">
             <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <i class="bi bi-layout-three-columns"></i>
-              </button>
-              <ul id="employee-table-columns" class="dropdown-menu"></ul>
+
+              <!-- <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="bi bi-layout-three-columns"></i>
+                    </button>
+                    <ul id="employee-table-columns" class="dropdown-menu"></ul> -->
             </div>
             <div>
+              <div>
+                <button class="btn btn-primary me-2 hr" data-bs-toggle="modal" data-bs-target="#new-employee-form">
+                  <i class="bi bi-plus-square me-2"></i> Add Employee
+                </button>
+
+              </div>
               <input class="form-control my-4" type="search" id="filter" aria-label="Search"
                 placeholder="ex. John Smith" />
             </div>
           </div>
           <div class="table-container">
             <table class="table table-striped table-hover" id="employee-table">
-              <thead></thead>
-              <tbody></tbody>
+              <thead>
+                <tr>
+                  <th>Employee ID</th>
+                  <th>Full Name</th>
+                  <th>Department</th>
+                  <th>Job Title</th>
+                  <th>Hire Date</th>
+                  <th>Action</th> <!-- Added column for the button -->
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Table rows will be dynamically generated by JavaScript -->
+              </tbody>
             </table>
           </div>
         </div>
-      </div> -->
+      </div>
 
-      <div class="container">
-        <div class="tables">
-            <div class="table-taps">
-                <div class="dropdown">
-                    <!-- <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        <i class="bi bi-layout-three-columns"></i>
-                    </button> -->
-                    <!-- <ul id="employee-table-columns" class="dropdown-menu"></ul> -->
-                </div>
-                <div>
-                    <input class="form-control my-4" type="search" id="filter" aria-label="Search"
-                        placeholder="ex. John Smith" />
-                </div>
-            </div>
-            <div class="table-container">
-                <table class="table table-striped table-hover" id="employee-table">
-                    <thead>
-                        <tr>
-                            <th>Employee ID</th>
-                            <th>Full Name</th>
-                            <th>Department</th>
-                            <th>Job Title</th>
-                            <th>Hire Date</th>
-                            <th>Action</th> <!-- Added column for the button -->
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Table rows will be dynamically generated by JavaScript -->
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    
 
 
     </div>
