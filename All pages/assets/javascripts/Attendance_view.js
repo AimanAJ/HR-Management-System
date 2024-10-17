@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         <td>${record.date}</td>
                         <td>${record.punchIn || 'N/A'}</td>
                         <td>${record.punchOut || '---'}</td>
-                        <td>${workingHours}</td>
+                        <td>${record.workingHours}</td>
                     </tr>
                 `;
                 attendanceTableBody.innerHTML += row;

@@ -175,6 +175,207 @@
 
 
 
+// document.addEventListener("DOMContentLoaded", function() {
+//     const punchInButton = document.getElementById("punchInButton");
+//     const punchOutButton = document.getElementById("punchOutButton");
+//     const attendanceTableBody = document.getElementById("attendanceTable").querySelector("tbody");
+
+//     let attendanceData = JSON.parse(localStorage.getItem("attendanceData")) || [];
+//     const currentUser = JSON.parse(localStorage.getItem("loggedInUser")) || { name: "John Doe", jobTitle: "Developer" };
+
+//     const today = new Date();
+//     const todayDate = today.toISOString().split('T')[0]; // Format: YYYY-MM-DD
+
+//     // Function to check if punch-in already exists for today
+//     function hasPunchedInToday() {
+//         return attendanceData.some(record => record.date === todayDate && record.punchIn !== null);
+//     }
+
+//     // Function to update the attendance table
+//     function updateAttendanceTable() {
+//         attendanceTableBody.innerHTML = ""; // Clear existing rows
+//         attendanceData.forEach(record => {
+//             const workingHours = record.punchOut ? calculateWorkingHours(record.punchIn, record.punchOut) : 'N/A';
+//             const row = `<tr>
+//                 <td>${record.date}</td>
+//                 <td>${record.employeeName}</td>
+//                 <td>${record.jobTitle}</td>
+//                 <td>${record.punchIn || 'N/A'}</td>
+//                 <td>${record.punchOut || '---'}</td>
+//                 <td>${workingHours}</td>
+//             </tr>`;
+//             attendanceTableBody.innerHTML += row;
+//         });
+//     }
+
+//     // Calculate working hours and minutes
+//     function calculateWorkingHours(punchInTime, punchOutTime) {
+//         const [punchInHours, punchInMinutes] = punchInTime.split(':').map(Number);
+//         const [punchOutHours, punchOutMinutes] = punchOutTime.split(':').map(Number);
+
+//         const punchInDate = new Date();
+//         punchInDate.setHours(punchInHours, punchInMinutes, 0);
+
+//         const punchOutDate = new Date();
+//         punchOutDate.setHours(punchOutHours, punchOutMinutes, 0);
+
+//         const diffInMs = punchOutDate - punchInDate; // Difference in milliseconds
+//         const totalMinutes = Math.floor(diffInMs / (1000 * 60)); // Convert milliseconds to total minutes
+//         const hours = Math.floor(totalMinutes / 60); // Get whole hours
+//         const minutes = totalMinutes % 60; // Get remaining minutes
+
+//         return `${hours} H : ${minutes} m `;
+//     }
+
+//     // Punch In functionality
+//     punchInButton.addEventListener("click", function() {
+//         if (hasPunchedInToday()) {
+//             alert("You have already punched in today.");
+//             return;
+//         }
+//         const punchInTime = new Date().toLocaleTimeString('en-US', { hour12: false }); // Get current time in 24-hour format
+//         const newRecord = {
+//             date: todayDate,
+//             employeeName: currentUser.name,
+//             jobTitle: currentUser.title,
+//             punchIn: punchInTime,
+//             punchOut: null
+//         };
+//         attendanceData.push(newRecord); // Add new record
+//         localStorage.setItem("attendanceData", JSON.stringify(attendanceData));
+//         punchInButton.disabled = true;
+//         punchOutButton.disabled = false;
+//         updateAttendanceTable();
+//     });
+
+//     // Punch Out functionality
+//     punchOutButton.addEventListener("click", function() {
+//         const punchOutTime = new Date().toLocaleTimeString('en-US', { hour12: false }); // Get current time in 24-hour format
+//         const todayRecord = attendanceData.find(record => record.date === todayDate);
+//         if (todayRecord && todayRecord.punchIn) {
+//             todayRecord.punchOut = punchOutTime;
+//             localStorage.setItem("attendanceData", JSON.stringify(attendanceData));
+//             punchOutButton.disabled = true;
+//             updateAttendanceTable();
+//         }
+//     });
+
+//     // Disable Punch In if already punched in today
+//     if (hasPunchedInToday()) {
+//         punchInButton.disabled = true;
+//         punchOutButton.disabled = false;
+//     }
+
+//     // Load existing attendance records
+//     updateAttendanceTable();
+// });
+
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     const punchInButton = document.getElementById("punchInButton");
+//     const punchOutButton = document.getElementById("punchOutButton");
+//     const attendanceTableBody = document.getElementById("attendanceTable").querySelector("tbody");
+
+//     let attendanceData = JSON.parse(localStorage.getItem("attendanceData")) || [];
+//     const currentUser = JSON.parse(localStorage.getItem("loggedInUser")) || { name: "John Doe", jobTitle: "Developer" };
+
+//     const today = new Date();
+//     const todayDate = today.toISOString().split('T')[0]; // Format: YYYY-MM-DD
+    
+
+//     // Function to check if punch-in already exists for today
+//     function hasPunchedInToday() {
+//         return attendanceData.some(record => record.date === todayDate && record.punchIn !== null);
+//     }
+
+//     // Function to update the attendance table
+//     function updateAttendanceTable() {
+//         attendanceTableBody.innerHTML = ""; // Clear existing rows
+//         attendanceData.forEach(record => {
+//             const workingHours = record.workingHours || 'N/A';
+//             const row = `<tr>
+//                 <td>${record.date}</td>
+//                 <td>${record.employeeName}</td>
+//                 <td>${record.jobTitle}</td>
+//                 <td>${record.punchIn || 'N/A'}</td>
+//                 <td>${record.punchOut || '---'}</td>
+//                 <td>${workingHours}</td>
+//             </tr>`;
+//             attendanceTableBody.innerHTML += row;
+//         });
+//     }
+
+//     // Calculate working hours and minutes
+//     function calculateWorkingHours(punchInTime, punchOutTime) {
+//         const [punchInHours, punchInMinutes] = punchInTime.split(':').map(Number);
+//         const [punchOutHours, punchOutMinutes] = punchOutTime.split(':').map(Number);
+
+//         const punchInDate = new Date();
+//         punchInDate.setHours(punchInHours, punchInMinutes, 0);
+
+//         const punchOutDate = new Date();
+//         punchOutDate.setHours(punchOutHours, punchOutMinutes, 0);
+
+//         const diffInMs = punchOutDate - punchInDate; // Difference in milliseconds
+//         const totalMinutes = Math.floor(diffInMs / (1000 * 60)); // Convert milliseconds to total minutes
+//         const hours = Math.floor(totalMinutes / 60); // Get whole hours
+//         const minutes = totalMinutes % 60; // Get remaining minutes
+
+//         return `${hours} H : ${minutes} m`;
+//     }
+
+//     // Punch In functionality
+//     punchInButton.addEventListener("click", function() {
+//         if (hasPunchedInToday()) {
+//             alert("You have already punched in today.");
+//             return;
+//         }
+//         const punchInTime = new Date().toLocaleTimeString('en-US', { hour12: false }); // Get current time in 24-hour format
+//         const newRecord = {
+//             date: todayDate,
+//             employeeName: currentUser.name,
+//             jobTitle: currentUser.jobTitle,
+//             punchIn: punchInTime,
+//             punchOut: null,
+//             workingHours: null
+//         };
+//         attendanceData.push(newRecord); // Add new record
+//         localStorage.setItem("attendanceData", JSON.stringify(attendanceData));
+//         punchInButton.disabled = true;
+//         punchOutButton.disabled = false;
+//         updateAttendanceTable();
+//     });
+
+//     // Punch Out functionality
+//     punchOutButton.addEventListener("click", function() {
+//         const punchOutTime = new Date().toLocaleTimeString('en-US', { hour12: false }); // Get current time in 24-hour format
+//         const todayRecord = attendanceData.find(record => record.date === todayDate);
+//         if (todayRecord && todayRecord.punchIn) {
+//             todayRecord.punchOut = punchOutTime;
+
+//             // Calculate working hours
+//             const workingHours = calculateWorkingHours(todayRecord.punchIn, punchOutTime);
+//             todayRecord.workingHours = workingHours;
+
+//             localStorage.setItem("attendanceData", JSON.stringify(attendanceData));
+//             punchOutButton.disabled = true;
+//             updateAttendanceTable();
+//         }
+//     });
+
+//     // Disable Punch In if already punched in today
+//     if (hasPunchedInToday()) {
+//         punchInButton.disabled = false;
+//         punchOutButton.disabled = false;
+//     }
+
+//     // Load existing attendance records
+//     updateAttendanceTable();
+// });
+
+
+
+
 document.addEventListener("DOMContentLoaded", function() {
     const punchInButton = document.getElementById("punchInButton");
     const punchOutButton = document.getElementById("punchOutButton");
@@ -186,6 +387,61 @@ document.addEventListener("DOMContentLoaded", function() {
     const today = new Date();
     const todayDate = today.toISOString().split('T')[0]; // Format: YYYY-MM-DD
 
+    // Function to insert default attendance data for testing
+    function insertDefaultAttendanceData() {
+        if (!localStorage.getItem("attendanceData")) {
+            const defaultData = [
+                {
+                    date: "2024-10-12",
+                    employeeName: "Ayman Aljaradat",
+                    title: "Software Developer",
+                    punchIn: "09:00:00",
+                    punchOut: "17:00:00",
+                    workingHours: "8 H : 0 m"
+                },
+                {
+                    date: "2024-10-13",
+                    employeeName: "Ayman Aljaradat",
+                    title: "Software Developer",
+                    punchIn: "09:30:00",
+                    punchOut: "18:00:00",
+                    workingHours: "8 H : 30 m"
+                },
+                {
+                    date: "2024-10-14",
+                    employeeName: "Ayman Aljaradat",
+                    title: "Software Developer",
+                    punchIn: "08:45:00",
+                    punchOut: "17:15:00",
+                    workingHours: "8 H : 30 m"
+                },
+                {
+                    date: "2024-10-15",
+                    employeeName: "Ayman Aljaradat",
+                    title: "Software Developer",
+                    punchIn: "10:00:00",
+                    punchOut: "18:00:00",
+                    workingHours: "7 H : 0 m"
+                },
+                {
+                    date: "2024-10-16",
+                    employeeName: "Ayman Aljaradat",
+                    title: "Software Developer",
+                    punchIn: "08:30:00",
+                    punchOut: "16:30:00",
+                    workingHours: "8 H : 0 m"
+                }
+            ];
+            localStorage.setItem("attendanceData", JSON.stringify(defaultData));
+        }
+    }
+
+    // Call the function to insert default data on load (only once)
+    insertDefaultAttendanceData();
+
+    // Fetch updated attendance data after inserting default data
+    attendanceData = JSON.parse(localStorage.getItem("attendanceData")) || [];
+
     // Function to check if punch-in already exists for today
     function hasPunchedInToday() {
         return attendanceData.some(record => record.date === todayDate && record.punchIn !== null);
@@ -195,11 +451,11 @@ document.addEventListener("DOMContentLoaded", function() {
     function updateAttendanceTable() {
         attendanceTableBody.innerHTML = ""; // Clear existing rows
         attendanceData.forEach(record => {
-            const workingHours = record.punchOut ? calculateWorkingHours(record.punchIn, record.punchOut) : 'N/A';
+            const workingHours = record.workingHours || 'N/A';
             const row = `<tr>
                 <td>${record.date}</td>
                 <td>${record.employeeName}</td>
-                <td>${record.jobTitle}</td>
+                <td>${record.title}</td>
                 <td>${record.punchIn || 'N/A'}</td>
                 <td>${record.punchOut || '---'}</td>
                 <td>${workingHours}</td>
@@ -237,9 +493,10 @@ document.addEventListener("DOMContentLoaded", function() {
         const newRecord = {
             date: todayDate,
             employeeName: currentUser.name,
-            jobTitle: currentUser.title,
+            title: currentUser.title,
             punchIn: punchInTime,
-            punchOut: null
+            punchOut: null,
+            workingHours: null
         };
         attendanceData.push(newRecord); // Add new record
         localStorage.setItem("attendanceData", JSON.stringify(attendanceData));
@@ -254,6 +511,11 @@ document.addEventListener("DOMContentLoaded", function() {
         const todayRecord = attendanceData.find(record => record.date === todayDate);
         if (todayRecord && todayRecord.punchIn) {
             todayRecord.punchOut = punchOutTime;
+
+            // Calculate working hours
+            const workingHours = calculateWorkingHours(todayRecord.punchIn, punchOutTime);
+            todayRecord.workingHours = workingHours;
+
             localStorage.setItem("attendanceData", JSON.stringify(attendanceData));
             punchOutButton.disabled = true;
             updateAttendanceTable();

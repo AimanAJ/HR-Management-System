@@ -169,6 +169,202 @@
 
 
 
+// import { createTable, filterTable } from "./table_maker.js";
+// let editMode = false;
+// let editLeave = null;
+// let leavesWithEmployeesData = [];
+// const url = "assets/data/employees_data.json";
+// const addEmployeeForm = document.getElementById("create-leave-form");
+// const employeeNameSelect = document.getElementById("employee-name");
+// const jopTitle = document.getElementById("jop-title");
+// const department = document.getElementById("department");
+// const startDate = document.getElementById("startDate");
+// startDate.value = new Date().toISOString().split("T")[0];
+// let leaves = (localStorage.leaves && JSON.parse(localStorage.leaves)) || [];
+// const table = document.querySelector("table");
+// let user;
+// try {
+//   user = JSON.parse(localStorage.loggedInUser);
+// } catch (error) {
+//   console.warn("Couldn't find the user in the local storage.");
+// }
+
+// function addAction(actionTitle, actionBody) {
+//   let actions =
+//     (localStorage.actions && JSON.parse(localStorage.actions)) || [];
+//   actions.push({
+//     id: actions.length,
+//     date: new Date(),
+//     actionTitle,
+//     actionBody,
+//     user,
+//   });
+//   localStorage.actions = JSON.stringify(actions);
+// }
+
+// // Get the form fields to for easy use.
+// let formFields = {
+//   jopTitle,
+//   department,
+//   employeeNameSelect,
+//   leaveType: document.getElementById("leaveType"),
+//   startDate: document.getElementById("startDate"),
+//   endDate: document.getElementById("endDate"),
+//   reason: document.getElementById("reason"),
+// };
+
+// // initialize the modal so we can show it and close it later.
+// const modal = document.getElementById("new-leave-form");
+// if (!bootstrap.Modal.getInstance(modal)) {
+//   new bootstrap.Modal(modal);
+// }
+
+// let filter = "";
+
+// // Change the this array to change the table columns
+// let tableHeadings = [
+//   ["Employee", "Full Name"],
+//   ["Leave Type", "leaveType"],
+//   ["Reason", "reason"],
+//   ["Start Date", "startDate"],
+//   ["End Date", "endDate"],
+// ];
+
+// // Get all employee data to put them in the select
+// let employeeData;
+
+// async function getEmployeeData() {
+//   const response = await fetch(url);
+//   employeeData = await response.json();
+// }
+// async function addEmployeeNamesOptions() {
+//   if (!employeeData) {
+//     await getEmployeeData();
+//   }
+//   employeeData.forEach((employee) => {
+//     const option = document.createElement("option");
+//     option.value = employee["Employee ID"];
+//     option.textContent = employee["Full Name"];
+//     employeeNameSelect.appendChild(option);
+//   });
+// }
+
+// // This part for the searchable select. Do not touch it unless you really know what you are doing.
+// let choices;
+// document.addEventListener("DOMContentLoaded", async function () {
+//   await addEmployeeNamesOptions();
+//   choices = new Choices(employeeNameSelect, {
+//     searchEnabled: true,
+//     placeholderValue: "Select Employee",
+//     shouldSort: false,
+//   });
+//   populateLeavesData();
+// });
+
+// // Auto fill the employee data in the fields
+// employeeNameSelect.addEventListener("change", () => {
+//   const employee = employeeData.find(
+//     (employee) => employee["Employee ID"] === employeeNameSelect.value
+//   );
+//   department.value = employee["Department"];
+//   jopTitle.value = employee["Job Title"];
+// });
+
+// // Add the form data into the local storage
+// function crateNewLeave(leave) {
+//   leave.id = String(leaves.length);
+//   leaves.push(leave);
+//   localStorage.leaves = JSON.stringify(leaves);
+
+//   populateLeavesData();
+//   addAction(
+//     "Create New Leave",
+//     "Create a new leave for " +
+//       employeeData.find(
+//         (employee) => employee["Employee ID"] === leave.employeeId
+//       )["Full Name"]
+//   );
+// }
+
+// // Update existing leave
+// function updateLeave(leave) {
+//   leave.id = editLeave;
+
+//   leaves = leaves.map((oldLeave) =>
+//     oldLeave.id === editLeave ? leave : oldLeave
+//   );
+//   localStorage.leaves = JSON.stringify(leaves);
+
+//   populateLeavesData();
+//   addAction(
+//     "Leave Updated",
+//     "Update the leave for " +
+//       employeeData.find(
+//         (employee) => employee["Employee ID"] === leave.employeeId
+//       )["Full Name"]
+//   );
+// }
+
+// addEmployeeForm.addEventListener("submit", (event) => {
+//   event.preventDefault();
+//   // Get the data from the form
+//   bootstrap.Modal.getInstance(modal).hide();
+//   // resetForm();
+
+//   const formData = {
+//     employeeId: "Ayman Aljaradat",
+//     leaveType: formFields.leaveType.value,
+//     startDate: formFields.startDate.value,
+//     endDate: formFields.endDate.value,
+//     reason: formFields.reason.value,
+//     status: "Pending",
+//   };
+
+//   if (editMode) {
+//     editMode = false;
+//     updateLeave(formData);
+//     bootstrap.Modal.getInstance(modal).hide();
+//     resetForm();
+//     return;
+//   }
+
+//   crateNewLeave(formData);
+//   resetForm();
+
+//   startDate.value = new Date().toISOString().split("T")[0];
+
+//   // Close the modal
+//   bootstrap.Modal.getInstance(modal).hide();
+// });
+
+// async function margeEmployeeDataWithLeaves() {
+//   for (const leave of leaves) {
+//     if (!employeeData) {
+//       await getEmployeeData();
+//     }
+//     const employee = employeeData.find(
+//       (employee) => employee["Employee ID"] === leave["employeeId"]
+//     );
+//     // Merge the employee data with the leave application
+//     leavesWithEmployeesData.push({
+//       ...leave,
+//       ...employee,
+//     });
+//   }
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
 import { createTable, filterTable } from "./table_maker.js";
 let editMode = false;
 let editLeave = null;
@@ -280,9 +476,9 @@ function crateNewLeave(leave) {
   addAction(
     "Create New Leave",
     "Create a new leave for " +
-      employeeData.find(
-        (employee) => employee["Employee ID"] === leave.employeeId
-      )["Full Name"]
+    employeeData.find(
+      (employee) => employee["Employee ID"] === leave.employeeId
+    )["Full Name"]
   );
 }
 
@@ -299,9 +495,9 @@ function updateLeave(leave) {
   addAction(
     "Leave Updated",
     "Update the leave for " +
-      employeeData.find(
-        (employee) => employee["Employee ID"] === leave.employeeId
-      )["Full Name"]
+    employeeData.find(
+      (employee) => employee["Employee ID"] === leave.employeeId
+    )["Full Name"]
   );
 }
 
@@ -352,22 +548,6 @@ async function margeEmployeeDataWithLeaves() {
     });
   }
 }
-
-// async function populateLeavesData() {
-//   // For getting the data in the table.
-//   leavesWithEmployeesData = [];
-//   await margeEmployeeDataWithLeaves();
-//   createTable(table, leavesWithEmployeesData, tableHeadings);
-//   for (const tr of document.getElementsByTagName("tr")) {
-//     if (tr.id) {
-//       tr.appendChild(createEditButtons());
-//     }
-//     else{
-//       let th = document.createElement("th");
-//       tr.appendChild(th);
-//     }
-//   }
-// }
 
 function populateLeavesData() {
   const tbody = document.getElementById("leave-table-body");
@@ -512,3 +692,61 @@ function createEditButtons() {
 
 
 
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  function insertDefaultAttendanceData() {
+    if (!localStorage.getItem("leaves")) {
+      const defaultData = [
+        {
+          date: "2024-10-12",
+          employeeName: "Ayman Aljaradat",
+          title: "Software Developer",
+          punchIn: "09:00:00",
+          punchOut: "17:00:00",
+          workingHours: "8 H : 0 m"
+        },
+        {
+          date: "2024-10-13",
+          employeeName: "Ayman Aljaradat",
+          title: "Software Developer",
+          punchIn: "09:30:00",
+          punchOut: "18:00:00",
+          workingHours: "8 H : 30 m"
+        },
+        {
+          date: "2024-10-14",
+          employeeName: "Ayman Aljaradat",
+          title: "Software Developer",
+          punchIn: "08:45:00",
+          punchOut: "17:15:00",
+          workingHours: "8 H : 30 m"
+        },
+        {
+          date: "2024-10-15",
+          employeeName: "Ayman Aljaradat",
+          title: "Software Developer",
+          punchIn: "10:00:00",
+          punchOut: "18:00:00",
+          workingHours: "7 H : 0 m"
+        },
+        {
+          date: "2024-10-16",
+          employeeName: "Ayman Aljaradat",
+          title: "Software Developer",
+          punchIn: "08:30:00",
+          punchOut: "16:30:00",
+          workingHours: "8 H : 0 m"
+        }
+      ];
+      localStorage.setItem("leaves", JSON.stringify(defaultData));
+    }
+  }
+
+  // Call the function to insert default data on load (only once)
+  insertDefaultAttendanceData();
+
+
+
+
+});
