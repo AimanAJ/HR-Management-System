@@ -102,7 +102,7 @@ let badgeMapper = { high: "danger", medium: "warning", low: "primary" };
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
 // Only show tasks for "Ahmad Ali"
-let ahmadAliTasks = tasks.filter(task => task.assignMembersSelect.includes("Ahmad Ali"));
+let ahmadAliTasks = tasks.filter(task => task.assignMembersSelect.includes("Ayman Aljaradat"));
 
 // Load the tasks for "Ahmad Ali" on page load
 ahmadAliTasks.forEach(addTaskToPage);
@@ -113,7 +113,7 @@ async function loadEmployeeData() {
   const employees = await response.json();
 
   // Only add "Ahmad Ali" to the employee select dropdown
-  const ahmadAli = employees.find(emp => emp["Full Name"] === "Ahmad Ali");
+  const ahmadAli = employees.find(emp => emp["Full Name"] === "Ayman Aljaradat");
   if (ahmadAli) {
     addEmployeeToSelect(ahmadAli);
   }
